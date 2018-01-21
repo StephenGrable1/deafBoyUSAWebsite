@@ -1,0 +1,35 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 300px;
+}
+
+.App-header {
+  background-color: white;
+  height: 600px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 3.5em;
+  color:black;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+
+@media screen and (max-width:600px) and (min-width:10px){
+  .App-header {
+    height: 350px;
+    padding: 20px;
+    color: white;
+  }
+  .App-logo {
+    height: 250px;
+  }
+}
