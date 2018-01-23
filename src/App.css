@@ -7,7 +7,6 @@
 }
 
 .App-header {
-  background-color: white;
   height: 430px;
   padding: 20px;
   color: white;
@@ -45,8 +44,8 @@
   margin:auto;
   margin-top:20px;
   padding:1px;
-  background-color: rgb(224, 224, 224);
-  border:.8px solid #ccc;
+  background-color: rgba(247, 247, 247, 0.664);
+  border:.8px solid rgb(231, 231, 231);
   border-radius:8px;
 }
 
@@ -55,7 +54,7 @@
 }
 
 .keep-going{
-  background-color: rgb(251, 255, 43);
+  background-color: rgb(241, 245, 20);
 }
 
 .email-success{

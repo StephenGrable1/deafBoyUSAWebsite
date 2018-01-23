@@ -10,8 +10,7 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      email: '', 
-      isValidEmail: false
+      email: ''
   };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -35,7 +34,7 @@ class App extends Component {
 
   render() {
     var emailValidationBar = () => {
-      var isEmailValid = this.state.isValidEmail;
+      var isEmailValid = verifyEmail(this.state.email);
       var emailLength = this.state.email.length;
 
 
@@ -70,13 +69,40 @@ class App extends Component {
       } 
       
     }
+
+    var emailValidationText = () => {
+      var isEmailValid = verifyEmail(this.state.email);
+      var emailLength = this.state.email.length;
+
+      if(isEmailValid){
+        return (
+            <h4>Email looks good!</h4>          
+        )
+      } 
+
+      
+      if(!isEmailValid && (emailLength >= 0 && emailLength <= 0)){
+        return (
+          <h4>Enter your email below</h4>
+        )
+      }
+
+
+      if(!isEmailValid && (emailLength >= 1)){
+        return (
+          <h4>Keep going! We believe in you!</h4>
+        )
+      } 
+      
+    }
     return (
       <div className="App">
-        <header className="App-header">
+        <div className="App-header">
           <img src={deafboy} className="App-logo" alt="logo" />
           <h1 className="App-title">deafBoyUSA</h1>
-        </header>
+        </div>
         <div>
+        {emailValidationText()}
         <form onSubmit={this.handleSubmit}>
           <label>Email
             <input type="text" value={this.state.email} onChange={this.handleChange} />
@@ -87,7 +113,7 @@ class App extends Component {
         <div className="email-signup-progress-bar">
           {emailValidationBar()}
         </div>  
-        <h4>Progress</h4>
+        
         </div>
       </div>
     );
