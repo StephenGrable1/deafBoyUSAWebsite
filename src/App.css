@@ -8,7 +8,7 @@
 
 .App-header {
   background-color: white;
-  height: 600px;
+  height: 430px;
   padding: 20px;
   color: white;
 }
@@ -23,9 +23,49 @@
 }
 
 
+
+.email-input-bar-outter{
+  float: left;
+  transition: 2s;
+  -webkit-transition:2s;
+  -moz-transition: 2s;
+  -o-transition: 2s;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
+  background-color: yellowgreen;
+  height:100%;
+  text-align: center;
+  padding:0px;
+  border-radius:8px;
+}
+
+.email-signup-progress-bar{
+  width:45%;
+  height:20px;
+  margin:auto;
+  margin-top:20px;
+  padding:1px;
+  background-color: rgb(224, 224, 224);
+  border:.8px solid #ccc;
+  border-radius:8px;
+}
+
+.get-started{
+  background-color: rgb(255, 72, 72);
+}
+
+.keep-going{
+  background-color: rgb(251, 255, 43);
+}
+
+.email-success{
+  background-color: rgb(43, 255, 36);
+}
+
+
 @media screen and (max-width:600px) and (min-width:10px){
   .App-header {
-    height: 350px;
+    height: 370px;
     padding: 20px;
     color: white;
   }
