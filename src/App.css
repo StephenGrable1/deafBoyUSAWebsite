@@ -25,10 +25,10 @@
 
 .email-input-bar-outter{
   float: left;
-  transition: 2s;
-  -webkit-transition:2s;
-  -moz-transition: 2s;
-  -o-transition: 2s;
+  transition: 1s;
+  -webkit-transition:1s;
+  -moz-transition: 1s;
+  -o-transition: 1s;
   -webkit-transition-timing-function: ease;
   transition-timing-function: ease;
   background-color: yellowgreen;
@@ -44,8 +44,8 @@
   margin:auto;
   margin-top:20px;
   padding:1px;
-  background-color: rgba(247, 247, 247, 0.664);
-  border:.8px solid rgb(231, 231, 231);
+  background-color: rgba(228, 228, 228, 0.767);
+  border:.8px solid rgba(192, 192, 192, 0.877);
   border-radius:8px;
 }
 
@@ -54,11 +54,11 @@
 }
 
 .keep-going{
-  background-color: rgb(241, 245, 20);
+  background-color: rgb(253, 239, 43);
 }
 
 .email-success{
-  background-color: rgb(43, 255, 36);
+  background-color: rgb(0, 255, 0);
 }
 
 

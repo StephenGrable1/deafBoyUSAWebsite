@@ -61,7 +61,7 @@ class App extends Component {
 
       if(!isEmailValid && (emailLength >= 1)){
         const barStyle = {
-          width: '70%'
+          width: '60%'
         }
         return (
           <div style={barStyle} className="email-input-bar-outter keep-going" ></div>
@@ -90,7 +90,7 @@ class App extends Component {
 
       if(!isEmailValid && (emailLength >= 1)){
         return (
-          <h4>Keep going! We believe in you!</h4>
+          <h4>Almost there! Keep going!</h4>
         )
       } 
       
