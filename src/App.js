@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import deafboy from './deafBoyTransparent.png';
 import './App.css';
 
+import Recaptcha from 'react-recaptcha';
 
 import {verifyEmail} from "./VerifyEmail/VerifyEmail.js"
 
@@ -10,10 +11,14 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      email: ''
+      email: '',
+      recaptchaApproved: false
   };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.verifyCallback = this.verifyCallback.bind(this);
+    this.callback = this.callback.bind(this);
+    this.expiredCallback = this.expiredCallback.bind(this);
   }
   handleSubmit(e) {
     var emailVerified = verifyEmail(this.state.email);
@@ -31,6 +36,20 @@ class App extends Component {
     this.setState({email: e.target.value})
     this.setState({isValidEmail: verifyEmail(e.target.value)})
   }
+
+
+  callback = function () {
+    console.log("recpatcha loaded");
+  };
+  
+  verifyCallback = function (response) {
+    console.log("recaptcha approved");
+    this.setState({recaptchaApproved: true})
+  };
+
+  expiredCallback = () => {
+    console.log(`Recaptcha expired`);
+  };
 
   render() {
     var emailValidationBar = () => {
@@ -93,7 +112,18 @@ class App extends Component {
           <h4>Almost there! Keep going!</h4>
         )
       } 
-      
+    }
+
+    var emailSubmitButton = () => {
+      if (this.state.recaptchaApproved){
+        return (
+          <input type="submit" value="Submit" className="submit-email-bttn"></input>
+        )
+      } else {
+        return (
+          <div></div>
+        )
+      }
     }
     return (
       <div className="App">
@@ -102,18 +132,28 @@ class App extends Component {
           <h1 className="App-title">deafBoyUSA</h1>
         </div>
         <div>
-        {emailValidationText()}
-        <form onSubmit={this.handleSubmit}>
-          <label>Email
-            <input type="text" value={this.state.email} onChange={this.handleChange} />
-          </label>
-          <input type="submit" value="Submit"></input>
-        </form>
-
+        
         <div className="email-signup-progress-bar">
           {emailValidationBar()}
-        </div>  
-        
+        </div> 
+
+        <form onSubmit={this.handleSubmit} className="email-form">
+          <label className="email-input-label">{emailValidationText()}</label>
+            <input type="text" value={this.state.email} onChange={this.handleChange} className="email-input"/>
+            <div className="recaptcha-widget">
+        <div>
+            <Recaptcha
+              sitekey="6LetL0IUAAAAADzd_yTMiJJh56eY6LQulKRhOD-p"
+              render="explicit"
+              verifyCallback={this.verifyCallback}
+              onloadCallback={this.callback}
+              expiredCallback={this.expiredCallback}
+            />
+          </div>
+          {emailSubmitButton()}
+        </div>
+        </form>
+
         </div>
       </div>
     );
