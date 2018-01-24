@@ -9,18 +9,20 @@ const client = require('drip-nodejs')({
     accountId: process.env.ACCOUNT_ID
 });
 
-const payload = {
-    subscribers: [{
-      email: "Stephen@acme.com",
-      time_zone: "America/New_York",
-      custom_fields: {
-        name: "John Doe"
-      }
-    }]
-  };
+
 
 
 app.get('/api/signup', (req, res) => {
+    const payload = {
+        subscribers: [{
+            email: "Stephen2341234@acme.com",
+            time_zone: "America/New_York",
+            custom_fields: {
+            name: "John Doe"
+            }
+        }]
+        };
+
     client.createUpdateSubscriber(payload)
     .then((res) => {
         console.log(res.body)

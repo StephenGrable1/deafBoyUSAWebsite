@@ -52,22 +52,22 @@
   height:20px;
   margin:auto;
   margin-top:60px;
-  padding:1px;
+  padding:0px;
   background-color: rgba(228, 228, 228, 0.767);
   border:.8px solid rgba(192, 192, 192, 0.877);
   border-radius:8px;
 }
 
 .get-started{
-  background-color: rgb(68, 68, 68);
+  background-color: green;
 }
 
 .keep-going{
-  background-color: rgb(68, 68, 68);
+  background-color: green;
 }
 
 .email-success{
-  background-color: rgb(68, 68, 68);
+  background-color: green;
 }
 
 .submit-email-bttn{

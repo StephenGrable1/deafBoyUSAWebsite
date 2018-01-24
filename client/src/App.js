@@ -117,7 +117,7 @@ class App extends Component {
 
       if(isEmailValid && captchaComplete && !formCompleted){
         const barStyle = {
-          width: '95%'
+          width: '93%'
         }
         return (
           <div style={barStyle} className="email-input-bar-outter email-success"></div>
@@ -162,7 +162,7 @@ class App extends Component {
 
       if(isEmailValid && captchaComplete && !formCompleted){
         return (
-            <h4 className="smash">Now smash that submit button!! <span role="img" alt="explosion emoji">💥</span></h4>        
+            <h4 className="smash">Now smash that sign up button!! <span role="img" alt="explosion emoji">💥</span></h4>        
         )
       } 
 
