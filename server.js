@@ -20,7 +20,7 @@ const payload = {
   };
 
 
-app.get('/api/hello', (req, res) => {
+app.get('/api/signup', (req, res) => {
     client.createUpdateSubscriber(payload)
     .then((res) => {
         console.log(res.body)

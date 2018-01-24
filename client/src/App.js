@@ -24,13 +24,11 @@ class App extends Component {
   }
 
   componentDidMount() {
-   this.callApi()
-        .then(res => console.log(res))
-        .catch(err => console.log("ERROR:", err))
+   
   }
 
   callApi = async () => {
-    const response = await fetch('/api/hello');
+    const response = await fetch('/api/signup');
     const body = await response.json();
 
     if (response.status !== 200) throw Error(body.message);
@@ -42,8 +40,14 @@ class App extends Component {
     var emailVerified = verifyEmail(this.state.email);
 
     if(emailVerified){
-      console.log('valid email', this.state.email)
+      //set the state complete to true to show user has completed all steps
       this.setState({completed:true})
+
+      //this will call the api for drip to sign user up to system
+      this.callApi()
+        .then(res => console.log(res))
+        .catch(err => console.log("ERROR:", err))
+
     } else {
       console.log('invalid email', this.state.email)
     }
