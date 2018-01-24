@@ -4,6 +4,8 @@ import './App.css';
 
 import Recaptcha from 'react-recaptcha';
 
+import emoji from 'emoji-dictionary';
+
 import {verifyEmail} from "./VerifyEmail/VerifyEmail.js"
 
 
@@ -12,7 +14,8 @@ class App extends Component {
     super(props);
     this.state = {
       email: '',
-      recaptchaApproved: false
+      recaptchaApproved: false, 
+      completed: false
   };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -21,11 +24,15 @@ class App extends Component {
     this.verifyCallback = this.verifyCallback.bind(this);
     this.expiredCallback = this.expiredCallback.bind(this);
   }
+  componentDidMount(){
+    console.log(emoji.unicode);
+  }
   handleSubmit(e) {
     var emailVerified = verifyEmail(this.state.email);
-    
+
     if(emailVerified){
       console.log('valid email', this.state.email)
+      this.setState({completed:true})
     } else {
       console.log('invalid email', this.state.email)
     }
@@ -51,11 +58,19 @@ class App extends Component {
     this.setState({recaptchaApproved: false})
   };
 
+
+  resetCaptcha = () => {
+    console.log(`Recaptcha expired`);
+    this.setState({recaptchaApproved: false})
+  };
+
   render() {
     var emailValidationBar = () => {
       var isEmailValid = verifyEmail(this.state.email);
       var emailLength = this.state.email.length;
       var captchaComplete = this.state.recaptchaApproved;
+      var formCompleted = this.state.completed;
+
 
       if(!isEmailValid && (emailLength >= 0 && emailLength <= 0)){
         const barStyle = {
@@ -85,7 +100,17 @@ class App extends Component {
         )
       } 
 
-      if(isEmailValid && captchaComplete){
+      if(isEmailValid && captchaComplete && !formCompleted){
+        const barStyle = {
+          width: '95%'
+        }
+        return (
+          <div style={barStyle} className="email-input-bar-outter email-success"></div>
+          
+        )
+      } 
+
+      if(isEmailValid && captchaComplete && formCompleted){
         const barStyle = {
           width: '100%'
         }
@@ -94,27 +119,14 @@ class App extends Component {
           
         )
       } 
-      
     }
 
     var emailValidationText = () => {
       var isEmailValid = verifyEmail(this.state.email);
       var emailLength = this.state.email.length;
       var captchaComplete = this.state.recaptchaApproved;
+      var formCompleted = this.state.completed;
 
-
-      if(isEmailValid && !captchaComplete){
-        return (
-            <h4>Email looks good! Click below to prove your not a robot.</h4>          
-        )
-      } 
-
-      if(isEmailValid && captchaComplete){
-        return (
-            <h4>Completed! Nice work</h4>          
-        )
-      } 
-      
       if(!isEmailValid && (emailLength >= 0 && emailLength <= 0)){
         return (
           <h4>Enter your email below</h4>
@@ -124,6 +136,24 @@ class App extends Component {
       if(!isEmailValid && (emailLength >= 1)){
         return (
           <h4>Almost there! Keep going!</h4>
+        )
+      } 
+
+      if(isEmailValid && !captchaComplete){
+        return (
+            <h4>Click below to prove you're not a robot.</h4>          
+        )
+      } 
+
+      if(isEmailValid && captchaComplete && !formCompleted){
+        return (
+            <h4 className="smash">Now smash that button!! 💥</h4>        
+        )
+      } 
+
+      if(formCompleted){
+        return (
+          <h4>Thanks for signing up! 💯</h4>
         )
       } 
     }
