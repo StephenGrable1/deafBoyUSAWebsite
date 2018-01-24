@@ -157,7 +157,7 @@ class App extends Component {
     var emailSubmitButton = () => {
       if (this.state.recaptchaApproved){
         return (
-          <input type="submit" value="Submit" className="submit-email-bttn"></input>
+          <input type="submit" value="Follow The Leader" className="submit-email-bttn"></input>
         )
       } else {
         return (
