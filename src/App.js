@@ -4,8 +4,6 @@ import './App.css';
 
 import Recaptcha from 'react-recaptcha';
 
-import emoji from 'emoji-dictionary';
-
 import {verifyEmail} from "./VerifyEmail/VerifyEmail.js"
 
 
@@ -24,9 +22,7 @@ class App extends Component {
     this.verifyCallback = this.verifyCallback.bind(this);
     this.expiredCallback = this.expiredCallback.bind(this);
   }
-  componentDidMount(){
-    console.log(emoji.unicode);
-  }
+
   handleSubmit(e) {
     var emailVerified = verifyEmail(this.state.email);
 
@@ -147,13 +143,13 @@ class App extends Component {
 
       if(isEmailValid && captchaComplete && !formCompleted){
         return (
-            <h4 className="smash">Now smash that button!! 💥</h4>        
+            <h4 className="smash">Now smash that submit button!! <span role="img" alt="explosion emoji">💥</span></h4>        
         )
       } 
 
       if(formCompleted){
         return (
-          <h4>Thanks for signing up! 💯</h4>
+          <h4>Thanks for signing up! <span role="img" alt="hundred emoji">💯</span></h4>
         )
       } 
     }
