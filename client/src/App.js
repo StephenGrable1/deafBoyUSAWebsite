@@ -23,6 +23,9 @@ class App extends Component {
     this.expiredCallback = this.expiredCallback.bind(this);
   }
 
+  componentDidMount() {
+   
+  }
   handleSubmit(e) {
     var emailVerified = verifyEmail(this.state.email);
 
@@ -157,7 +160,7 @@ class App extends Component {
     var emailSubmitButton = () => {
       if (this.state.recaptchaApproved){
         return (
-          <input type="submit" value="Follow The Leader" className="submit-email-bttn"></input>
+          <input type="submit" value="Sign Up" className="submit-email-bttn"></input>
         )
       } else {
         return (
