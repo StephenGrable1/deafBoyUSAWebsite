@@ -7,6 +7,7 @@
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
   },
   "dependencies": {
+    "dotenv": "^4.0.0",
     "drip-nodejs": "^1.0.1",
     "express": "^4.16.2"
   },

@@ -1,17 +1,18 @@
 const express = require('express');
+require('dotenv').load();
 
 const app = express();
 const port = process.env.PORT || 5000;
 
 const client = require('drip-nodejs')({
-    token:'8f073dbe3865832d8c40ef52cd0a9fdb',
-    accountId: '5542548'
+    token: process.env.DRIP_API_TOKEN,
+    accountId: process.env.ACCOUNT_ID
 });
 
 const payload = {
     subscribers: [{
       email: "Stephen@acme.com",
-      time_zone: "America/Los_Angeles",
+      time_zone: "America/New_York",
       custom_fields: {
         name: "John Doe"
       }
@@ -22,7 +23,7 @@ const payload = {
 app.get('/api/hello', (req, res) => {
     client.createUpdateSubscriber(payload)
     .then((res) => {
-        console.log(res)
+        console.log(res.body)
       // Handle `response.body`
     })
     .catch((error) => {
