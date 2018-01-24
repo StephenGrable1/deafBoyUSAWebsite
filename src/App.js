@@ -16,8 +16,9 @@ class App extends Component {
   };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.verifyCallback = this.verifyCallback.bind(this);
+
     this.callback = this.callback.bind(this);
+    this.verifyCallback = this.verifyCallback.bind(this);
     this.expiredCallback = this.expiredCallback.bind(this);
   }
   handleSubmit(e) {
@@ -28,7 +29,6 @@ class App extends Component {
     } else {
       console.log('invalid email', this.state.email)
     }
-
     e.preventDefault();
   }
 
@@ -36,7 +36,6 @@ class App extends Component {
     this.setState({email: e.target.value})
     this.setState({isValidEmail: verifyEmail(e.target.value)})
   }
-
 
   callback = function () {
     console.log("recpatcha loaded");
@@ -49,25 +48,15 @@ class App extends Component {
 
   expiredCallback = () => {
     console.log(`Recaptcha expired`);
+    this.setState({recaptchaApproved: false})
   };
 
   render() {
     var emailValidationBar = () => {
       var isEmailValid = verifyEmail(this.state.email);
       var emailLength = this.state.email.length;
+      var captchaComplete = this.state.recaptchaApproved;
 
-
-      if(isEmailValid){
-        const barStyle = {
-          width: '100%'
-        }
-        return (
-          <div style={barStyle} className="email-input-bar-outter email-success"></div>
-          
-        )
-      } 
-
-      
       if(!isEmailValid && (emailLength >= 0 && emailLength <= 0)){
         const barStyle = {
           width: '30%'
@@ -77,7 +66,6 @@ class App extends Component {
         )
       }
 
-
       if(!isEmailValid && (emailLength >= 1)){
         const barStyle = {
           width: '60%'
@@ -86,26 +74,52 @@ class App extends Component {
           <div style={barStyle} className="email-input-bar-outter keep-going" ></div>
         )
       } 
+
+      if(isEmailValid && !captchaComplete){
+        const barStyle = {
+          width: '80%'
+        }
+        return (
+          <div style={barStyle} className="email-input-bar-outter email-success"></div>
+          
+        )
+      } 
+
+      if(isEmailValid && captchaComplete){
+        const barStyle = {
+          width: '100%'
+        }
+        return (
+          <div style={barStyle} className="email-input-bar-outter email-success"></div>
+          
+        )
+      } 
       
     }
 
     var emailValidationText = () => {
       var isEmailValid = verifyEmail(this.state.email);
       var emailLength = this.state.email.length;
+      var captchaComplete = this.state.recaptchaApproved;
 
-      if(isEmailValid){
+
+      if(isEmailValid && !captchaComplete){
         return (
-            <h4>Email looks good!</h4>          
+            <h4>Email looks good! Click below to prove your not a robot.</h4>          
         )
       } 
 
+      if(isEmailValid && captchaComplete){
+        return (
+            <h4>Completed! Nice work</h4>          
+        )
+      } 
       
       if(!isEmailValid && (emailLength >= 0 && emailLength <= 0)){
         return (
           <h4>Enter your email below</h4>
         )
       }
-
 
       if(!isEmailValid && (emailLength >= 1)){
         return (
@@ -125,6 +139,7 @@ class App extends Component {
         )
       }
     }
+
     return (
       <div className="App">
         <div className="App-header">
@@ -153,9 +168,8 @@ class App extends Component {
           {emailSubmitButton()}
         </div>
         </form>
-
-        </div>
       </div>
+    </div>
     );
   }
 }

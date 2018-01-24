@@ -3,11 +3,11 @@
 }
 
 .App-logo {
-  height: 300px;
+  height: 200px;
 }
 
 .App-header {
-  height: 430px;
+  height: 300px;
   padding: 20px;
   color: white;
 }
@@ -22,10 +22,10 @@
 }
 
 .email-form{
-  height:350px;
+  height:320px;
   width:100%;
   padding-top:20px;
-  margin-bottom:20px;
+  margin-bottom:200px;
 }
 
 .email-input-bar-outter{
