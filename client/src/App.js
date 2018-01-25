@@ -28,7 +28,14 @@ class App extends Component {
   }
 
   callApi = async () => {
-    const response = await fetch('/api/signup');
+    var data = {
+      email: this.state.email
+    }
+
+    var email = this.state.email;
+
+    const response = await fetch('/api/signup/' + email)
+
     const body = await response.json();
 
     if (response.status !== 200) throw Error(body.message);
@@ -43,7 +50,7 @@ class App extends Component {
       //set the state complete to true to show user has completed all steps
       this.setState({completed:true})
 
-      //this will call the api for drip to sign user up to system
+      //this will call the api for drip in the server.js file to sign user up to drip system
       this.callApi()
         .then(res => console.log(res))
         .catch(err => console.log("ERROR:", err))

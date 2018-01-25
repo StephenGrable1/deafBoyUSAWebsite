@@ -12,13 +12,14 @@ const client = require('drip-nodejs')({
 
 
 
-app.get('/api/signup', (req, res) => {
+app.get('/api/signup/:email', (req, res) => {
+    console.log("THIS IS REQ", req.params.email)
     const payload = {
         subscribers: [{
-            email: "Stephen2341234@acme.com",
+            email: req.params.email,
             time_zone: "America/New_York",
             custom_fields: {
-            name: "John Doe"
+            name: "None Yet"
             }
         }]
         };
