@@ -5,14 +5,9 @@
 }
 
 .App-logo {
-  height: 250px;
+  height: 280px;
 }
 
-.App-header {
-  height: 300px;
-  padding: 20px;
-  color: white;
-}
 
 .App-title {
   font-weight: 300;
@@ -51,7 +46,7 @@
   width:45%;
   height:20px;
   margin:auto;
-  margin-top:60px;
+  margin-top:15px;
   padding:0px;
   background-color: rgba(228, 228, 228, 0.767);
   border:.8px solid rgba(192, 192, 192, 0.877);
@@ -115,27 +110,13 @@
 
 @media screen and (max-width:600px) and (min-width:400px){
   .App-header {
-    height: 320px;
-    padding: 20px;
+    height: 280px;
+    padding: 10px;
     color: white;
   }
   .App-logo {
     height: 250px;
-  }
-
-  .email-signup-progress-bar{
-    width:75%;
-  }
-}
-
-@media screen and (max-width:400px) and (min-width:10px){
-  .App-header {
-    height: 290px;
-    padding: 20px;
-    color: white;
-  }
-  .App-logo {
-    height: 250px;
+    margin-top:-10px;
   }
 
   .App-title{
@@ -144,5 +125,37 @@
 
   .email-signup-progress-bar{
     width:85%;
+    margin-top:65px;
+  }
+
+  .email-form{
+    padding-top:5px;
+    margin-bottom:200px;
+  }
+}
+
+@media screen and (max-width:400px) and (min-width:10px){
+  .App-header {
+    height: 280px;
+    padding: 10px;
+    color: white;
+  }
+  .App-logo {
+    height: 230px;
+    margin-top:-20px;
+  }
+
+  .App-title{
+    font-size: 3em;
+  }
+
+  .email-signup-progress-bar{
+    width:85%;
+    margin-top:15px;
+  }
+
+  .email-form{
+    padding-top:5px;
+    margin-bottom:200px;
   }
 }

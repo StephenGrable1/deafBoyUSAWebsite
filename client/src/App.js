@@ -28,14 +28,8 @@ class App extends Component {
   }
 
   callApi = async () => {
-    var data = {
-      email: this.state.email
-    }
-
     var email = this.state.email;
-
     const response = await fetch('/api/signup/' + email)
-
     const body = await response.json();
 
     if (response.status !== 200) throw Error(body.message);

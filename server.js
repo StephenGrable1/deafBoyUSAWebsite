@@ -9,11 +9,7 @@ const client = require('drip-nodejs')({
     accountId: process.env.ACCOUNT_ID
 });
 
-
-
-
 app.get('/api/signup/:email', (req, res) => {
-    console.log("THIS IS REQ", req.params.email)
     const payload = {
         subscribers: [{
             email: req.params.email,
@@ -22,7 +18,7 @@ app.get('/api/signup/:email', (req, res) => {
             name: "None Yet"
             }
         }]
-        };
+    };
 
     client.createUpdateSubscriber(payload)
     .then((res) => {
