@@ -10,9 +10,9 @@ Users always come first. So, I decided to implement a progress bar to update the
 <p>You can take a look at this build by following the steps below:</p>
 
 <ol>
-<li>Navigate to an empty folder in your terminal and enter <code>'git clone https://github.com/StephenGrable1/deafBoyUSAWebsite'</code></li>
-<li>In your terminal, run <code>'npm install'</code> in the main app folder and also run <code>'npm install'</code> inside the client folder. </li>
-<li>Navigate into the client folder in your terminal and run 'npm start'</li>
+<li>Navigate to an empty folder in your terminal and enter <code>git clone https://github.com/StephenGrable1/deafBoyUSAWebsite</code></li>
+<li>In your terminal, run <code>'npm install'</code> in the main app folder and also run <code>npm install</code> inside the client folder. </li>
+<li>Navigate into the client folder in your terminal and run <code>npm start<code></li>
 <li>Your default web browser should open and navigate to localhost:3000</li>
 <li>Please feel free to email me if you have any trouble</li>
 </ol>
