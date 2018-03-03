@@ -4,14 +4,14 @@
 
 <p><a href="https://www.drip.com/">Drip email marketing</a> is one of the most advanced email automation software in the market today. I wanted to build a landing page that would enable users to easily sign up to a drip email newsletter. I also wanted to integrate a reCaptcha from Google to prevent spam and bots from accessing and signing up for the newsletter.
 
-Users always come first. So, I decided to implement a progress bar to update the user on their progress while entering and submitting their email. As soon as the user starts to type their email, the progress bar responds and gives them immediate feedback. This feature turns a simple email signup form into a game. A game that the user is (hopefully) compelled to finish.</p>
+Users always come first. So, I decided to implement a progress bar to update the user on their progress while entering and submitting their email. As soon as the user starts to type their email, the progress bar responds and gives them immediate feedback. This feature turns a simple email signup form into a elegant and responsive experience.</p>
 
 
 <p>You can take a look at this build by following the steps below:</p>
 
 <ol>
-<li>Navigate to an empty folder in your terminal and enter 'git clone https://github.com/StephenGrable1/deafBoyUSAWebsite'</li>
-<li>In your terminal, run 'npm install' in the main app folder and also run 'npm install' inside the client folder. </li>
+<li>Navigate to an empty folder in your terminal and enter <code>'git clone https://github.com/StephenGrable1/deafBoyUSAWebsite'</code></li>
+<li>In your terminal, run <code>'npm install'</code> in the main app folder and also run <code>'npm install'</code> inside the client folder. </li>
 <li>Navigate into the client folder in your terminal and run 'npm start'</li>
 <li>Your default web browser should open and navigate to localhost:3000</li>
 <li>Please feel free to email me if you have any trouble</li>
